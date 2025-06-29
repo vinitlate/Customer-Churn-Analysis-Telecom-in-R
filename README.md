@@ -28,7 +28,26 @@ This project investigates **customer churn** in a telecom dataset using a mix of
 ---
 
 ## 📁 Project Structure
-
+```
+Customer-Churn-Analysis-Telecom-in-R/
+├──Data/
+│ └── Customer_Data.xlxs
+├──silver/
+│ ├── Silver_Layer_Customer_Load.py
+│ ├── Silver_Layer_Product_Load.py
+│ └── Silver_Layer_Transactions_Load.py
+├──gold/
+│ ├── Gold_Layer_Daily_Sales.py
+│ ├── Gold_Layer_Daily_Sales_By_Category.py
+│ ├── Gold_Layer_Customer_Summary.py
+│ ├── Gold_Layer_Product_Performance.py
+│ ├── Gold_Layer_Country_Sales.py
+│ ├── Gold_Layer_Sales_Calendar.py
+│ ├── Gold_Layer_Customers.py
+│ ├── Gold_Layer_Products.py
+│ └── Gold_Layer_Orders.py
+├── README.md
+```
 ---
 
 ## 🧰 Techniques Used
