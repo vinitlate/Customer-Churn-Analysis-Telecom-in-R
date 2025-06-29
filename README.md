@@ -34,16 +34,9 @@ Customer-Churn-Analysis-Telecom-in-R/
 │ └── Customer_Data.xlxs
 ├──Analysis/
 │ └── churn_analysis.R
-├──gold/
-│ ├── Gold_Layer_Daily_Sales.py
-│ ├── Gold_Layer_Daily_Sales_By_Category.py
-│ ├── Gold_Layer_Customer_Summary.py
-│ ├── Gold_Layer_Product_Performance.py
-│ ├── Gold_Layer_Country_Sales.py
-│ ├── Gold_Layer_Sales_Calendar.py
-│ ├── Gold_Layer_Customers.py
-│ ├── Gold_Layer_Products.py
-│ └── Gold_Layer_Orders.py
+├──Output/
+│ ├── Presentation.pdf
+│ └── Project Report.pdf
 ├── README.md
 ```
 ---
@@ -71,16 +64,15 @@ Customer-Churn-Analysis-Telecom-in-R/
 
 ## 📌 How to Run
 
-1. Clone the repo  
-2. Place your dataset in the `/data` folder (e.g., `customer_data.csv`)  
-3. Open `scripts/churn_analysis.R` in RStudio  
-4. Run the script step by step for full analysis and visualizations  
+1. Clone the repo    
+2. Open `scripts/churn_analysis.R` in RStudio  
+3. Run the script step by step for full analysis and visualizations  
 
 ---
 
 ## 💡 Business Implications
 
-This project doesn't just explain *who* is likely to churn—it shows **why**, and helps businesses act on it. From loyalty programs for new customers to pricing strategy for high spenders, the insights drive targeted, cost-effective retention efforts.
+This project doesn't just explain *who* is likely to churn - it shows **why**, and helps businesses act on it. From loyalty programs for new customers to pricing strategy for high spenders, the insights drive targeted, cost-effective retention efforts.
 
 ---
 
