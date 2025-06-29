@@ -2,9 +2,8 @@
 # Churn Analysis in Telecom Dataset
 # ---------------------------------
 # Authors: Vinit Late & Sahil Bora
-# Project: ST635 - Final Project
-# Description: This R script performs data preprocessing, EDA, regression modeling,
-# PCA, and clustering analysis to study customer churn.
+# Project: Intermediate Statistical Modelling for Business Final Project
+# Description: This R script performs data preprocessing, EDA, regression modeling, PCA, and clustering analysis to study customer churn.
 
 # -------------------------------
 # 📦 Load Required Libraries
@@ -18,7 +17,7 @@ library(pROC)
 # -------------------------------
 # 📂 Load and Prepare Data
 # -------------------------------
-data <- Customer_Data  # Replace with your actual data loading if needed
+data <- Customer_Data
 
 # Check structure and missing values
 str(data)
@@ -47,7 +46,101 @@ data <- data[, !invalid_factors]
 # -------------------------------
 # 📊 Exploratory Data Analysis
 # -------------------------------
-# (Add your ggplot2 visualizations here, e.g., churn dist, tenure, etc.)
+# Churn Distribution with Custom Colors
+ggplot(data, aes(x = Churn, fill = Churn)) +
+  geom_bar() +
+  geom_text(stat = "count", aes(label = scales::percent(..count../sum(..count..), accuracy = 0.1)), vjust = -0.5) +
+  labs(title = "Churn Distribution", x = "Churn Status", y = "Count") +
+  scale_fill_manual(values = c("No" = "#F8766D", "Yes" = "#00BFC4")) +
+  theme_minimal()
+
+# Tenure Distribution with Custom Colors
+ggplot(data, aes(x = tenure)) +
+  geom_histogram(binwidth = 5, fill = "#00bfc4", color = "#f8766d") +
+  labs(title = "Distribution of Tenure", x = "Tenure (Months)", y = "Frequency") +
+  theme_minimal()
+
+
+# Bar Chart: Internet Service and Churn by Gender
+ggplot(data, aes(x = InternetService, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~gender) +
+  labs(title = "Internet Service and Churn by Gender",
+       x = "Internet Service",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Dependents Distribution by Churn
+ggplot(data, aes(x = Dependents, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Dependents Distribution by Churn",
+       x = "Dependents",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Churn Distribution by Partner Status
+ggplot(data, aes(x = Partner, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Churn Distribution by Partner Status",
+       x = "Partner Status",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Senior Citizen Churn
+ggplot(data, aes(x = SeniorCitizen, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Senior Citizen Churn",
+       x = "Senior Citizen Status",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Online Security and Churn
+ggplot(data, aes(x = OnlineSecurity, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Online Security and Churn",
+       x = "Online Security",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Paperless Billing and Churn
+ggplot(data, aes(x = PaperlessBilling, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Paperless Billing and Churn",
+       x = "Paperless Billing",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Tech Support and Churn
+ggplot(data, aes(x = TechSupport, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Tech Support and Churn",
+       x = "Tech Support Availability",
+       y = "Count") +
+  theme_minimal()
+
+# Bar Chart: Phone Service and Churn
+ggplot(data, aes(x = PhoneService, fill = Churn)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Phone Service and Churn",
+       x = "Phone Service",
+       y = "Count") +
+  theme_minimal()
+
+# Density Plot: Monthly Charges by Churn
+ggplot(data, aes(x = MonthlyCharges, fill = Churn)) +
+  geom_density(alpha = 0.6) +
+  labs(title = "Monthly Charges by Churn",
+       x = "Monthly Charges",
+       y = "Density") +
+  theme_minimal()
+
+# Density Plot: Tenure by Churn
+ggplot(data, aes(x = tenure, fill = Churn)) +
+  geom_density(alpha = 0.6) +
+  labs(title = "Tenure by Churn",
+       x = "Tenure",
+       y = "Density") +
+  theme_minimal()
 
 # -------------------------------
 # 📈 Multiple Linear Regression
